@@ -1,0 +1,184 @@
+/* Base Styles */
+.login-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Header Section */
+.login-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.branding h1 {
+  color: #2A4D7A;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.branding h2 {
+  color: #F9A825;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+/* Main Content */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-section h3 {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.welcome-section h4 {
+  color: #2A4D7A;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* Login Form */
+.login-form {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #444;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2A4D7A;
+  box-shadow: 0 0 0 2px rgba(42,77,122,0.1);
+}
+
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background: #2A4D7A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 100px;
+}
+
+.login-button:hover {
+  background: #1A3A5A;
+}
+
+/* Registration Prompt */
+.registration-prompt {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.registration-prompt a {
+  color: #2A4D7A;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.registration-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Cashback Promotion */
+.cashback-promotion {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #F8F9FC;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cashback-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.promotion-text h5 {
+  color: #F9A825;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.promotion-text p {
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+}
+/* Language Switcher */
+.language-switcher {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.lang-btn {
+  padding: 6px 12px;
+  border: 1px solid #2A4D7A;
+  border-radius: 4px;
+  background: transparent;
+  color: #2A4D7A;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  background: #2A4D7A;
+  color: white;
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(42,77,122,0.1);
+}
+
+/* Update header positioning */
+.login-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 10px;
+}

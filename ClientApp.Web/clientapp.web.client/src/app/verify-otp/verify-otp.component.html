@@ -1,0 +1,50 @@
+<div class="otp-main-container">
+<div class="otp-container">
+  <!-- Resend Timer -->
+  <div class="resend-timer">
+    <button class="resend-button"
+    [disabled]="isButtonDisabled"
+          (click)="resendOtp()">
+      <span>RESEND</span>
+      <span class="timer">{{ timerDisplay }}</span>
+    </button>
+  </div>
+
+  <!-- OTP Instructions -->
+  <p class="otp-instructions">Enter 4-digit code sent to <span class="phone-number">{{displayMessage}}</span></p>
+
+  <!-- OTP Input Fields -->
+  <div class="otp-input">
+    <div id="otpOuterBlock">
+      <div id="otpInnerBlock">
+          <input id="otpVerifyText" type="password" maxlength="4"  [(ngModel)]="otp"  #otpInput />
+      </div>
+  </div>
+  </div>
+
+  <!-- Verify Button -->
+
+  <button class="next-button"   [disabled]="otp.length<4"   [class.active]="otp.length==4" (click)="verifyOtp()">VERIFY</button>
+  <!-- Numeric Keypad -->
+  <!-- Numeric Keypad -->
+<div class="keypad">
+  <div class="keypad-row">
+    <button (click)="appendNumber('1')">1</button>
+    <button (click)="appendNumber('2')">2 <span>ABC</span></button>
+    <button (click)="appendNumber('3')">3 <span>DEF</span></button>
+  </div>
+  <div class="keypad-row">
+    <button (click)="appendNumber('4')">4 <span>GHI</span></button>
+    <button (click)="appendNumber('5')">5 <span>JKL</span></button>
+    <button (click)="appendNumber('6')">6 <span>MNO</span></button>
+  </div>
+  <div class="keypad-row">
+    <button (click)="appendNumber('7')">7 <span>PQRS</span></button>
+    <button (click)="appendNumber('8')">8 <span>TUV</span></button>
+    <button (click)="appendNumber('9')">9 <span>WXYZ</span></button>
+  </div>
+  <div class="keypad-row">
+    <button class="zero-button" (click)="appendNumber('0')">0 <span (click)="removeLastDigit()">✕</span></button>
+  </div>
+</div>
+</div>

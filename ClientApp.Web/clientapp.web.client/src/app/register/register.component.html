@@ -1,0 +1,127 @@
+<div class="container">
+  <!-- Header with Back Button -->
+  <header>
+    <button class="back-button">
+      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 19L8 12L15 5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <header>
+      <i class="fas fa-chevron-left"></i>
+      <h2>{{ currentHeader }}</h2>
+    </header>
+  </header>
+
+  <!-- Stepper -->
+  <div class="stepper-container">
+    <span class="step-text">STEP <span id="current-step">{{currentStep}}</span> OF <span
+        id="total-steps">{{finalStep}}</span></span>
+    <div class="stepper">
+      <div class="step " [class.active]="currentStep === 1"></div>
+      <div class="step " [class.active]="currentStep === 2"></div>
+      <div class="step " [class.active]="currentStep === 3"></div>
+      <div class="step " [class.active]="currentStep === 4"></div>
+    </div>
+  </div>
+
+  <!-- Step Content (Dummy Steps) -->
+  <div class="steps">
+    <div class="step-content " [class.active]="currentStep === 1" id="step-1">
+      <p class="subtitle">Help! Let's get your account set up.</p>
+      <!-- HTML Template -->
+      <form [formGroup]="createAccountForm" id="create-account-form">
+        <!-- Customer Name -->
+        <div class="form-group">
+          <label for="customer-name">CUSTOMER NAME</label>
+          <input type="text" id="customer-name" formControlName="customerName" placeholder="Please enter">
+          <div *ngIf="createAccountForm.get('customerName')?.touched && createAccountForm.get('customerName')?.errors"
+            class="error-message">
+            <span *ngIf="createAccountForm.get('customerName')?.errors?.['required']">Customer name is required</span>
+          </div>
+        </div>
+
+        <!-- IC Number -->
+        <div class="form-group">
+          <label for="ic-number">IC NUMBER</label>
+          <input type="text" id="ic-number" formControlName="iCNumber" placeholder="Please enter" maxlength="12">
+          <div *ngIf="createAccountForm.get('iCNumber')?.touched && createAccountForm.get('iCNumber')?.errors"
+            class="error-message">
+            <span *ngIf="createAccountForm.get('iCNumber')?.errors?.['required']">IC Number is required</span>
+            <span
+              *ngIf="createAccountForm.get('iCNumber')?.errors?.['minlength'] || createAccountForm.get('iCNumber')?.errors?.['maxlength']">
+              IC Number must be exactly 12 characters
+            </span>
+            <span *ngIf="createAccountForm.get('iCNumber')?.errors?.['pattern']">
+              IC Number must contain only numbers
+            </span>
+          </div>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group">
+          <label for="mobile-number">MOBILE NUMBER</label>
+          <div class="input-with-prefix">
+            <span class="prefix">+80</span>
+            <input type="tel" id="mobile-number" formControlName="mobileNumber" placeholder="Please enter">
+          </div>
+          <div *ngIf="createAccountForm.get('mobileNumber')?.touched && createAccountForm.get('mobileNumber')?.errors"
+            class="error-message">
+            <span *ngIf="createAccountForm.get('mobileNumber')?.errors?.['required']">Mobile number is required</span>
+            <span *ngIf="createAccountForm.get('mobileNumber')?.errors?.['pattern']">
+              Invalid Malaysian mobile number (e.g., 123456789)
+            </span>
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="email-address">EMAIL ADDRESS</label>
+          <input type="email" id="email-address" formControlName="email" placeholder="Please enter">
+          <div *ngIf="createAccountForm.get('email')?.touched && createAccountForm.get('email')?.errors"
+            class="error-message">
+            <span *ngIf="createAccountForm.get('email')?.errors?.['required']">Email is required</span>
+            <span *ngIf="createAccountForm.get('email')?.errors?.['email']">Invalid email format</span>
+          </div>
+        </div>
+        <button class="next-button" type="submit" *ngIf="currentStep === 1" [class.active]="createAccountForm.valid"
+          (click)="submitStep(currentStep)" [disabled]="!createAccountForm.valid">NEXT</button>
+      </form>
+    </div>
+
+    <div class="step-content " [class.active]="currentStep === 2" id="step-2">
+
+      <!-- Resend Timer -->
+
+
+      <!-- OTP Instructions -->
+      <p class="otp-instructions">Enter 4-digit code sent to <span class="phone-number">+60 16 330 6675</span></p>
+
+      <!-- OTP Input Fields -->
+      <div class="otp-input">
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+      </div>
+
+      <!-- Verify Button -->
+      <!-- <button class="verify-button">VERIFY</button> -->
+    </div>
+
+    <div class="step-content " [class.active]="currentStep === 4" id="step-4">
+      <h3>Please create your <br> <span class="highlight">6-digit PIN</span></h3>
+      <p>You can log in using the PIN and authenticate any account activity.</p>
+      <div class="pin-input">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

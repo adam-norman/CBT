@@ -1,0 +1,211 @@
+/* Base Styles */
+.otp-main-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+
+
+
+/* Resend Timer */
+.resend-timer {
+  display: flex;
+  justify-content: right;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.timer {
+  color: #007bff;
+}
+.resend-button {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #666;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resend-button:hover {
+  background-color: #e9ecef;
+}
+
+.resend-button:active {
+  transform: scale(0.98);
+}
+
+.timer {
+  color: #007bff;
+}
+/* OTP Instructions */
+.otp-instructions {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.phone-number {
+  font-weight: bold;
+  color: #333;
+}
+
+/* OTP Input Fields */
+.otp-input {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border: none;
+   background-color: transparent;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+.resend-timer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.resend-button {
+  background-color: #cccccc; /* Initially gray */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.resend-button:not(:disabled) {
+  background-color: #007bff; /* Active blue */
+  cursor: pointer;
+}
+
+#otpOuterBlock{
+  width: 190px;
+  overflow: hidden;
+}
+#otpInnerBlock{
+  left: 0;
+  position: sticky;
+}
+
+#otpVerifyText{
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+  min-width: 220px;
+  outline:none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Verify Button */
+.verify-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.verify-button:hover {
+  background-color: #0056b3;
+}
+
+/* Numeric Keypad */
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 30px;
+}
+
+.keypad-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.keypad button {
+  flex: 1;
+  padding: 16px;
+  font-size: 18px;
+  background-color: #f4f4f9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.keypad button span {
+  display: block;
+  font-size: 10px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.keypad button:hover {
+  background-color: #ddd;
+}
+
+.zero-button {
+  flex: 2;
+}
+/* Next Button */
+.next-button {
+  width: 100%;
+  background: #d8d8d8;
+  color: #999;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: not-allowed;
+  transition: 0.3s;
+}
+
+.next-button.active {
+  background: #9b59b6;
+  color: white;
+  cursor: pointer;
+}
+
+.next-button.active:hover {
+  background: #8e44ad;
+}

@@ -1,0 +1,41 @@
+  /* Startup Page Overlay */
+  .startup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.startup-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.startup-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.copyright {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
+}

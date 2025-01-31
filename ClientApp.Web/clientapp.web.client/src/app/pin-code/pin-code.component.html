@@ -1,0 +1,81 @@
+<div class="container">
+  <!-- Header with Back Button -->
+  <header>
+    <button class="back-button">
+      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 19L8 12L15 5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+    <header>
+      <i class="fas fa-chevron-left"></i>
+      <h2>{{ currentHeader }}</h2>
+    </header>
+  </header>
+
+  <!-- Stepper -->
+  <div class="stepper-container">
+    <span class="step-text">STEP <span id="current-step">{{currentStep}}</span> OF <span
+        id="total-steps">{{finalStep}}</span></span>
+    <div class="stepper">
+      <div class="step " [class.active]="currentStep === 1"></div>
+      <div class="step " [class.active]="currentStep === 2"></div>
+      <div class="step " [class.active]="currentStep === 3"></div>
+      <div class="step " [class.active]="currentStep === 4"></div>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step-content " [class.active]="currentStep === 3" id="step-1">
+      <h3>Please {{innerTitle}} your <br> <span class="highlight">6-digit PIN</span></h3>
+      <p>You can log in using the PIN and authenticate any account activity.</p>
+      <!-- OTP Input Fields -->
+      <div class="otp-input">
+        <div id="otpOuterBlock">
+          <div id="otpInnerBlock">
+            <input id="otpVerifyText" type="password" (keyup)="validatePin()" maxlength="6" [(ngModel)]="otp" #otpInput />
+          </div>
+        </div>
+      </div>
+
+      <!-- Verify Button -->
+      <button class="next-button" [class.active]="firstTryCompleted" *ngIf="innerTitle==='Create'"
+        [disabled]="!firstTryCompleted" (click)="next()">NEXT</button>
+      <button class="next-button" [class.active]="secondTryCompleted" *ngIf="innerTitle==='Confirm'"
+        [disabled]="!secondTryCompleted" (click)="confirm()">NEXT</button>
+      <!-- Numeric Keypad -->
+      <div class="keypad">
+        <div class="keypad-row">
+          <button  (keyup)="validatePin()" (click)="appendNumber('1')">1</button>
+          <button (keyup)="validatePin()" (click)="appendNumber('2')">2 <span>ABC</span></button>
+          <button (keyup)="validatePin()" (click)="appendNumber('3')">3 <span>DEF</span></button>
+        </div>
+        <div class="keypad-row">
+          <button (keyup)="validatePin()" (click)="appendNumber('4')">4 <span>GHI</span></button>
+          <button (keyup)="validatePin()" (click)="appendNumber('5')">5 <span>JKL</span></button>
+          <button (keyup)="validatePin()" (click)="appendNumber('6')">6 <span>MNO</span></button>
+        </div>
+        <div class="keypad-row">
+          <button (keyup)="validatePin()" (click)="appendNumber('7')">7 <span>PQRS</span></button>
+          <button (keyup)="validatePin()" (click)="appendNumber('8')">8 <span>TUV</span></button>
+          <button (keyup)="validatePin()" (click)="appendNumber('9')">9 <span>WXYZ</span></button>
+        </div>
+        <div class="keypad-row">
+          <button class="zero-button" (keyup)="validatePin()" (click)="appendNumber('0')">0 <span (click)="removeLastDigit()">✕</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="step-content " [class.active]="currentStep === 4" id="step-4">
+      <div class="biometrics-card">
+        <img src="../../assets/images/biometric.svg" alt="Biometric Icon" class="biometric-illustration">
+        <div class="message">
+          For more seamless<br>
+          experience, please enable<br>
+          the biometric login
+        </div>
+
+        <div class="buttons-container">
+          <button class="next-button active"  (click)="submit(true)">ENABLE NOW</button>
+          <button class="next-button secondary"  (click)="submit(false)">MAYBE LATER</button>
+        </div>
+      </div>
+    </div>
+  </div>

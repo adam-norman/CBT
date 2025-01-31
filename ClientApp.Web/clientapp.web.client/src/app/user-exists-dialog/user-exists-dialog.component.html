@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>User Already Registered</h2>
+<mat-dialog-content>
+  <p>The user with IC Number is already registered.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="retryRegistration()">Retry</button>
+  <button mat-raised-button color="primary" (click)="goToLogin()">Login</button>
+</mat-dialog-actions>

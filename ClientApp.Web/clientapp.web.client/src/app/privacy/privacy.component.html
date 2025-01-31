@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Header with Back Button -->
+  <header>
+      <button class="back-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19L8 12L15 5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+      </button>
+
+
+      <header>
+        <i class="fas fa-chevron-left"></i>
+        <h2>{{ currentHeader }}</h2>
+    </header>
+  </header>
+
+  <!-- Stepper -->
+  <div class="stepper-container">
+      <span class="step-text">STEP <span id="current-step">{{currentStep}}</span> OF <span id="total-steps">{{finalStep}}</span></span>
+      <div class="stepper">
+          <div class="step " [class.active]="currentStep === 1"></div>
+          <div class="step " [class.active]="currentStep === 2"></div>
+          <div class="step " [class.active]="currentStep === 3"></div>
+          <div class="step " [class.active]="currentStep === 4"></div>
+      </div>
+  </div>
+
+  <!-- Step Content (Dummy Steps) -->
+  <div class="steps">
+      <div class="step-content "  [class.active]="currentStep === 1" id="step-1">
+        <p class="subtitle">Help! Let's get your account set up.</p>
+        <!-- HTML Template -->
+
+      </div>
+
+
+      <div class="step-content "  [class.active]="currentStep === 2" id="step-2">
+      <h3>Privacy Policy</h3>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non facilisis nisi.
+          Phasellus tincidunt lacus vel lacus ornare condimentum. Nam auctor fermentum erat,
+          nec fermentum sapien dictum eu.
+          <br><br>
+          Pellentesque et mi a urna congue fermentum vitae vel urna.
+      </p>
+
+      <div class="checkbox-container">
+          <input type="checkbox"  class="checkbox rounded-circle" id="termsCheckbox">
+          <label for="termsCheckbox">
+              I agree to the <span>Terms & Conditions</span> and the <span>Privacy Policy</span>
+          </label>
+      </div>
+      </div>
+  </div>
+  <!-- Next Button -->
+  <button class="next-button"  [class.active]="isNextDisabled === false" (click)="nextClicked()"
+  [disabled]="isNextDisabled">NEXT</button>
+</div>
